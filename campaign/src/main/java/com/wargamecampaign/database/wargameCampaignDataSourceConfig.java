@@ -1,4 +1,4 @@
-package com.wargame.campaign.database;
+package com.wargamecampaign.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

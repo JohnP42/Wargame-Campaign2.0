@@ -1,4 +1,4 @@
-package com.wargame.campaign.controller;
+package com.wargamecampaign.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

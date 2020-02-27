@@ -1,4 +1,4 @@
-package com.wargame.campaign;
+package com.wargamecampaign;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
