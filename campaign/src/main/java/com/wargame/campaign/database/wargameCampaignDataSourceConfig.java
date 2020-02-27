@@ -28,7 +28,8 @@ public class wargameCampaignDataSourceConfig extends HikariConfig {
     }
 
     @Bean(name = "wargameCampaignJdbcTemplate")
-    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(@Qualifier("wargame_campaign_data_source") DataSource pulseDataSource) {
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(
+            @Qualifier("wargame_campaign_data_source") DataSource pulseDataSource) {
         return new NamedParameterJdbcTemplate(new JdbcTemplate(pulseDataSource));
     }
 

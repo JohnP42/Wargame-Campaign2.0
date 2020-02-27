@@ -8,10 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eb5fcdcd-e68f-4e9c-b398-227cc417e70b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/campaign_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/campaign_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_2_7_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_3_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaign/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/pom.xml" afterDir="false" />
     </list>
@@ -61,7 +57,7 @@
           <entry key="java" value="428" />
           <entry key="jsp" value="21" />
           <entry key="properties" value="87" />
-          <entry key="xml" value="74" />
+          <entry key="xml" value="91" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -69,18 +65,18 @@
           <entry key="JAVA" value="428" />
           <entry key="JSP" value="21" />
           <entry key="Properties" value="87" />
-          <entry key="XML" value="74" />
+          <entry key="XML" value="91" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/campaign/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+            <state relative-caret-position="107">
+              <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -115,7 +111,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/campaign/src/main/java/com/wargame/campaign/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -518,12 +514,12 @@
       <workItem from="1582562330578" duration="5895000" />
       <workItem from="1582597822588" duration="7071000" />
       <workItem from="1582656080438" duration="595000" />
-      <workItem from="1582658424770" duration="4779000" />
+      <workItem from="1582658424770" duration="5512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20059000" />
+    <option name="totallyTimeSpent" value="20792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -547,7 +543,7 @@
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32986626" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -681,13 +677,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/campaign/src/main/webapp/WEB-INF/jsp/index.html" />
-    <entry file="file://$PROJECT_DIR$/campaign/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/campaign/src/main/java/com/wargame/campaign/CampaignApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -740,6 +729,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campaign/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
         </state>
       </provider>
     </entry>
