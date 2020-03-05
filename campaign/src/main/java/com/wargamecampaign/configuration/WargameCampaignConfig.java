@@ -1,5 +1,11 @@
 package com.wargamecampaign.configuration;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +16,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -71,5 +76,17 @@ public class WargameCampaignConfig implements WebMvcConfigurer {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
         interceptor.setParamName("language");
         return interceptor;
+    }
+
+    @Bean
+    public ObjectMapper simpleObjectMapper() {
+        ObjectMapper simpleObjectMapper = new ObjectMapper();
+        simpleObjectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        simpleObjectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        simpleObjectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        simpleObjectMapper.configure(SerializationFeature.INDENT_OUTPUT, Boolean.valueOf(System.getProperty("debug")));
+        simpleObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        simpleObjectMapper.registerModule(new JodaModule());
+        return simpleObjectMapper;
     }
 }

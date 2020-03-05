@@ -6,13 +6,13 @@ import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Timestamp;
 
 /**
  * 3/1/20にjohnpolhilによって作成されました。
  */
 @Data
-public class AccountEntity {
-
+public class AccountEntity extends WargameCampaignEntity {
     @NotNull
     @Min(0)
     private Integer id;
@@ -25,4 +25,6 @@ public class AccountEntity {
     @NotNull
     @Size(max = 355)
     private String email;
+    private Timestamp lastLogin;
+    private Boolean enabled;
 }
