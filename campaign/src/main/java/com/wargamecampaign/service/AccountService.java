@@ -5,6 +5,8 @@ import com.wargamecampaign.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
+
 /**
  * 3/4/20にjohnpolhilによって作成されました。
  */
@@ -15,14 +17,10 @@ public class AccountService {
     AccountRepository repository;
 
     public AccountEntity get(int id) {
-        return  repository.get(id);
+        return repository.get(id);
     }
 
-    public AccountEntity create() {
-        AccountEntity accountEntity = new AccountEntity();
-        accountEntity.setEmail("chesterTheMatester@gmail.com");
-        accountEntity.setUsername("ChesterMatester");
-        accountEntity.setPassword("password1234");
+    public AccountEntity create(AccountEntity accountEntity) throws SQLException {
         repository.create(accountEntity);
         return accountEntity;
     }

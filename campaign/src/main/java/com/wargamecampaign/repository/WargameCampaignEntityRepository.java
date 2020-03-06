@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,11 +30,17 @@ abstract public class WargameCampaignEntityRepository<T extends WargameCampaignE
     public T get(int id) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("id", id);
-        List<T> results = executeQuery("id = :id", paramMap);
+        List<T> results = executeQuery("where id = :id", paramMap);
         return results.size() == 0 ? null : results.get(0);
     }
 
-    public int create(T entity) {
+    public T getLast() {
+        Map<String, Object> paramMap = new HashMap<>();
+        List<T> results = executeQuery("order by id desc limit 1;", paramMap);
+        return results.size() == 0 ? null : results.get(0);
+    }
+
+    public T create(T entity) throws SQLException {
         entity.setCreatedAt(new DateTime(new Date().getTime()));
         entity.setUpdatedAt(new DateTime(new Date().getTime()));
         Map<String, Object> paramMap = simpleObjectMapper.convertValue(entity, new TypeReference<>() {});
@@ -59,7 +66,11 @@ abstract public class WargameCampaignEntityRepository<T extends WargameCampaignE
         log.debug("Executing Query: " + sql.toString() + "\n" +
                 "With parameters: " + paramMap);
 
-        return namedParameterJdbcTemplate.update(sql.toString(), paramMap);
+        if (namedParameterJdbcTemplate.update(sql.toString(), paramMap) == 1) {
+            return getLast();
+        } else {
+            throw new SQLException("Failed to create row in database");
+        }
     }
 
     void setClazz(Class<T> clazz) {
@@ -69,7 +80,7 @@ abstract public class WargameCampaignEntityRepository<T extends WargameCampaignE
 
     List<T> executeQuery(String sql, Map<String, Object> paramMap) {
         StringBuilder stringBuilder = new StringBuilder("select * from ");
-        stringBuilder.append(clazzName).append(" where ");
+        stringBuilder.append(clazzName).append(" ");
         sql = stringBuilder.append(sql).append(";").toString();
 
         log.debug("Executing Query: " + sql + "\n" +

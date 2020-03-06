@@ -2,9 +2,9 @@ package com.wargamecampaign.model;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
@@ -12,17 +12,16 @@ import java.sql.Timestamp;
  * 3/1/20にjohnpolhilによって作成されました。
  */
 @Data
+@EqualsAndHashCode
 public class AccountEntity extends WargameCampaignEntity {
-    @NotNull
-    @Min(0)
     private Integer id;
-    @NotNull
+    @NotBlank
     @Size(max = 50)
     private String username;
-    @NotNull
+    @NotBlank
     @Size(max = 50)
     private String password;
-    @NotNull
+    @NotBlank
     @Size(max = 355)
     private String email;
     private Timestamp lastLogin;
