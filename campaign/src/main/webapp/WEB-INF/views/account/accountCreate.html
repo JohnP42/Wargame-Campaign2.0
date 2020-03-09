@@ -5,20 +5,20 @@
     <title th:text="#{loc.common.app_name}"></title>
 </head>
 <body>
-    <h1>Create Account</h1>
+    <h1 th:text="#{loc.accountCreate.title}"></h1>
     <form action="#" th:action="@{/account}" th:object="${accountEntity}" method="post">
         <div>
-            <label>Username: </label>
+            <label th:text="#{loc.accountEntity.username}"></label>
             <input type="text" th:field="*{username}" />
             <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
         </div>
         <div>
-            <label>Email: </label>
+            <label th:text="#{loc.accountEntity.email}">Email: </label>
             <input type="email" th:field="*{email}" />
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         </div>
         <div>
-            <label>Password: </label>
+            <label th:text="#{loc.accountEntity.password}">Password: </label>
             <input type="password" th:field="*{password}" />
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
         </div>

@@ -19,7 +19,7 @@ public class AccountEntity extends WargameCampaignEntity {
     @Size(max = 50)
     private String username;
     @NotBlank
-    @Size(max = 50)
+    @Size(min=8, max = 50)
     private String password;
     @NotBlank
     @Size(max = 355)
