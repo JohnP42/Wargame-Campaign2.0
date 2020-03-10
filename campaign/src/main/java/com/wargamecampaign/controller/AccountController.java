@@ -1,14 +1,14 @@
 package com.wargamecampaign.controller;
 
+import com.wargamecampaign.exception.InvalidRequestException;
 import com.wargamecampaign.model.AccountEntity;
 import com.wargamecampaign.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.sql.SQLException;
@@ -38,7 +38,11 @@ public class AccountController {
         if (bindingResult.hasErrors()) {
             return "account/accountCreate";
         }
-        accountService.create(accountEntity);
+        try {
+            accountService.create(accountEntity);
+        } catch (DuplicateKeyException e) {
+            throw new InvalidRequestException("loc.accountEntity.duplicate", "account/accountCreate", accountEntity);
+        }
         return "account/accountSuccess";
     }
 

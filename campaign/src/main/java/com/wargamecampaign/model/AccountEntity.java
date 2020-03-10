@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
@@ -14,6 +15,7 @@ import java.sql.Timestamp;
 @Data
 @EqualsAndHashCode
 public class AccountEntity extends WargameCampaignEntity {
+    @Null
     private Integer id;
     @NotBlank
     @Size(max = 50)
@@ -24,6 +26,8 @@ public class AccountEntity extends WargameCampaignEntity {
     @NotBlank
     @Size(max = 355)
     private String email;
+    @Null
     private Timestamp lastLogin;
+    @Null
     private Boolean enabled;
 }

@@ -21,8 +21,7 @@ public class AccountService {
     }
 
     public AccountEntity create(AccountEntity accountEntity) throws SQLException {
-        repository.create(accountEntity);
-        return accountEntity;
+        return repository.create(accountEntity);
     }
 
 }

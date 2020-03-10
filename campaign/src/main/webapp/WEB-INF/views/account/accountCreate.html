@@ -7,6 +7,7 @@
 <body>
     <h1 th:text="#{loc.accountCreate.title}"></h1>
     <form action="#" th:action="@{/account}" th:object="${accountEntity}" method="post">
+        <div th:text="${error}"></div>
         <div>
             <label th:text="#{loc.accountEntity.username}"></label>
             <input type="text" th:field="*{username}" />
