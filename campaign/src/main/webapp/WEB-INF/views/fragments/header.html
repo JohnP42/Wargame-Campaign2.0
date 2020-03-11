@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{loc.common.app_name}"></title>
+</head>
+<body>
+    <header th:fragment="header">
+        <nav>
+            <a href="/" th:text="#{loc.nav.home}"></a> |
+            <a href="/accounts" th:text="#{loc.nav.accounts}"></a> |
+            <a href="/campaigns" th:text="#{loc.nav.campaigns}"></a> |
+            <a href="/maps" th:text="#{loc.nav.maps}"></a> |
+            <a href="/armies" th:text="#{loc.nav.armies}"></a> |
+            <a href="/rules/" th:text="#{loc.nav.rules}"></a>
+        </nav>
+        <ul>
+            <li><span th:text="#{loc.nav.welcome}"></span><a href="/account">User's Name</a></li>
+            <li><a href="/logout" th:text="#{loc.nav.logout}"></a></li>
+        </ul>
+    </header>
+</body>
+</html>

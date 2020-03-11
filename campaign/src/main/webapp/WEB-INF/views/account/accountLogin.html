@@ -5,11 +5,12 @@
     <title th:text="#{loc.common.app_name}"></title>
 </head>
 <body>
-<h1>Login</h1>
-<form action="#" th:action="@{/account}" th:object="${accountEntity}" method="post">
-    <p>Email: <input type="text" th:field="*{id}" /></p>
-    <p>Password: <input type="text" th:field="*{content}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+    <header th:replace="fragments/header :: header"></header>
+    <h2>Login</h2>
+    <form action="#" th:action="@{/account}" th:object="${accountEntity}" method="post">
+        <p>Email: <input type="text" th:field="*{id}" /></p>
+        <p>Password: <input type="text" th:field="*{content}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
 </body>
 </html>

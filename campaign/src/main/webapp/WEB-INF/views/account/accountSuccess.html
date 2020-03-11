@@ -5,6 +5,7 @@
     <title th:text="#{loc.common.app_name}"></title>
 </head>
 <body>
-    <h1>Welcome abourd <span th:text="#{username}"></span></h1>
+    <header th:replace="fragments/header :: header"></header>
+    <h2>Welcome abourd <span th:text="#{username}"></span></h2>
 </body>
 </html>

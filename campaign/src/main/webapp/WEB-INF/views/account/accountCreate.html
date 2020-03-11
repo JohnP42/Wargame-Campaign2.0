@@ -5,7 +5,8 @@
     <title th:text="#{loc.common.app_name}"></title>
 </head>
 <body>
-    <h1 th:text="#{loc.accountCreate.title}"></h1>
+    <header th:replace="fragments/header :: header"></header>
+    <h2 th:text="#{loc.accountCreate.title}"></h2>
     <form action="#" th:action="@{/account}" th:object="${accountEntity}" method="post">
         <div th:text="${error}"></div>
         <div>

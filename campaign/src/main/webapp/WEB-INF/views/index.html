@@ -5,7 +5,6 @@
     <title th:text="#{loc.common.app_name}"></title>
 </head>
 <body>
-    <h1 th:text="#{loc.common.app_name}"></h1>
-    <p th:text="#{loc.nav.home}"></p>
+    <header th:replace="fragments/header :: header"></header>
 </body>
 </html>
