@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <title th:text="#{loc.common.app_name}"></title>
@@ -15,8 +15,11 @@
             <a href="/rules/" th:text="#{loc.nav.rules}"></a>
         </nav>
         <ul>
-            <li><span th:text="#{loc.nav.welcome}"></span><a href="/account">User's Name</a></li>
-            <li><a href="/logout" th:text="#{loc.nav.logout}"></a></li>
+            <li><span th:text="#{loc.nav.welcome}"></span>
+                <a sec:authorize="!isAuthenticated()" href="/account/login" th:text="#{log.nav.login}">Log In</a>
+                <a sec:authorize="isAuthenticated()" sec:authentication="name" href="/account"></a>
+            </li>
+            <li sec:authorize="isAuthenticated()"><a href="/logout" th:text="#{loc.nav.logout}"></a></li>
         </ul>
     </header>
 </body>
